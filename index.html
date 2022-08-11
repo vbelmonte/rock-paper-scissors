@@ -6,10 +6,52 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Rock, Paper, Scissors</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
 
     <body>
-
+        <header>
+            <h1 class="dark-red">Rock, Paper, Scissors</h1>
+        </header>
+        <section>
+            <div class="main-area">
+                <div class="message-area">
+                    <p>Hello</p>
+                </div>
+                <div class="game-area">
+                    <div id="computer">
+                        <div>
+                            <h3 class="dark-blue">Computer: <span id="computer-score">0</span></h3>
+                        </div>
+                        <div class="frame">
+                            <div id="computer-choice">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="player">
+                        <div>
+                            <h3 class="dark-blue">Player: <span id="player-score">0</span></h3>
+                        </div>
+                        <div class="frame">
+                            <div id="player-choice">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
+            </div>
+        </section>
+        <footer>
+            <a href="https://github.com/vbelmonte/" target="_blank"><img class="icon" src="Images/github-icon.svg"></a>
+            <p>Designed and developed by <a href="https://github.com/vbelmonte/" target="_blank">Villy Belmonte</a></p>
+        </footer>
     
         <script src="index.js"></script>
     </body>

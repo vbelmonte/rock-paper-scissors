@@ -113,13 +113,17 @@ function game() {
     let computerChoice = undefined;
     let gameResult = undefined;
 
-    for (let i = 0; i < 5; i++) {
+    computerChoice = getComputerChoice();
+    roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
+    keepScore(roundResult);
+
+    /*for (let i = 0; i < 5; i++) {
         computerChoice = getComputerChoice();
         roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
         keepScore(roundResult);
         console.log(roundResult);
     }
     
-    console.log(announceWinner());
+    console.log(announceWinner());*/
 
 }

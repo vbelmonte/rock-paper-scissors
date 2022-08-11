@@ -1,0 +1,104 @@
+body {
+    background-color: #EDF2F4;
+    margin: 0;
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #EF233C;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
+    font-size: 64px;
+    text-align: center;
+}
+
+h3 {
+    font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+}
+
+button {
+    border: solid #EF233C 3px;
+    border-radius: 12px;
+    background-color: #D90429;
+    color: #EDF2F4;
+    font-weight: bold;
+    font-size: 16px;
+    height: 50px;
+    width: 115px;
+}
+
+button:hover {
+    background-color: #EF233C;
+}
+
+.dark-red {
+    color: #D90429;
+}
+
+.dark-blue {
+    color: #2B2D42;
+}
+
+#computer-choice-frame {
+    width: 350px;
+    height: 350px;
+    border: solid #2B2D42 4px;
+    border-radius: 16px;
+}
+
+.message-area {
+    text-align: center;
+}
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+.frame {
+    border: solid #2B2D42 4px;
+    border-radius: 16px;
+    width: 350px;
+    height: 350px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 0px;
+}
+
+.icon {
+    filter: invert(30%) sepia(0%) saturate(1863%) hue-rotate(154deg) brightness(92%) contrast(85%);
+    width: 30px;
+    height: 30px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 25px 0px 20px 0px;
+}
+
+footer p {
+    font-family: "Inter", "Arial", sans-serif;
+    color: gray;
+    font-size: 12px;
+    text-transform: uppercase;
+}
