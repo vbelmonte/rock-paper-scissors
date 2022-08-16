@@ -85,9 +85,11 @@ function determineWinner2(playerSelection, computerSelection) {
 function keepScore(entry) {
     if (entry[4] == "w") {
         player++;
+        updatePlayerScore(player);
     }
     else if (entry[4] == "l") {
         computer++;
+        updateComputerScore(computer);
     }
 }
 
@@ -108,7 +110,7 @@ function announceWinner() {
     return message;
 }
 
-function game() {
+/*function game() {
     let roundResult = undefined;
     let computerChoice = undefined;
     let gameResult = undefined;
@@ -117,13 +119,42 @@ function game() {
     roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
     keepScore(roundResult);
 
-    /*for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         computerChoice = getComputerChoice();
         roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
         keepScore(roundResult);
         console.log(roundResult);
     }
     
-    console.log(announceWinner());*/
+    console.log(announceWinner());
 
+}*/
+
+function game(playerSelection) {
+    let computerChoice = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerChoice);
+    keepScore(roundResult);
+    console.log(roundResult);
 }
+
+function updatePlayerScore(score) {
+    let playerScore = document.getElementById("player-score");
+    playerScore.textContent = score;
+}
+
+function updateComputerScore(score) {
+    let computerScore = document.getElementById("computer-score");
+    computerScore.textContent = score;
+}
+
+
+
+
+/************************************************************** 
+ * CLICK AND TYPE FUNCTIONS
+ * 
+**************************************************************/
+$("button").click(function(event) {
+    /*console.log($(event.target).text());*/
+    game($(event.target).text());
+});
