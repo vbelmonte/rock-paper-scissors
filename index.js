@@ -1,6 +1,9 @@
 let rpsArray = ["rock", "paper", "scissors"];
 let player = 0;
 let computer = 0;
+let imgPlayer = document.getElementById("player-choice");
+let imgComputer = document.getElementById("computer-choice");
+let message = document.getElementById("message");
 
 function getComputerChoice() {
     let randomNumber = Math.random()*3;
@@ -49,7 +52,7 @@ function determineWinner2(playerSelection, computerSelection) {
     let message = "You chose " + playerSelection + ". Computer chose " + computerSelection + ".";
 
     if (playerSelection == computerSelection) {
-        return "No winner." + message;
+        return "No winner. " + message;
     }
     else {
         switch(playerSelection) {
@@ -133,7 +136,11 @@ function announceWinner() {
 function game(playerSelection) {
     let computerChoice = getComputerChoice();
     let roundResult = playRound(playerSelection, computerChoice);
+
+    displayComputerSelectionIcon(computerChoice);
+    displayPlayerSelectionIcon(playerSelection);
     keepScore(roundResult);
+    displayMessage(roundResult);
     console.log(roundResult);
 }
 
@@ -147,7 +154,25 @@ function updateComputerScore(score) {
     computerScore.textContent = score;
 }
 
+function getSelectionIcon(selectionIcon) {
+    return "Images/" + selectionIcon + ".png";
+}
 
+function displayPlayerSelectionIcon(playerSelection) {
+    let playerSelectionIconAddress = getSelectionIcon(playerSelection);
+    imgPlayer.src = playerSelectionIconAddress;
+    imgPlayer.width = 250;
+}
+
+function displayComputerSelectionIcon(computerSelection) {
+    let computerSelectionIconAddress = getSelectionIcon(computerSelection);
+    imgComputer.src = computerSelectionIconAddress;
+    imgComputer.width = 250;
+}
+
+function displayMessage(theMessage) {
+    message.textContent = theMessage;
+}
 
 
 /************************************************************** 

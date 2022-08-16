@@ -52,15 +52,17 @@ button:hover {
     color: #2B2D42;
 }
 
-#computer-choice-frame {
-    width: 350px;
-    height: 350px;
-    border: solid #2B2D42 4px;
-    border-radius: 16px;
-}
-
 .message-area {
     text-align: center;
+}
+
+#message {
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0;
+    border-radius: 16px;
 }
 
 .game-area {
@@ -74,6 +76,12 @@ button:hover {
     border-radius: 16px;
     width: 350px;
     height: 350px;
+}
+
+#computer div, #player div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttons {
