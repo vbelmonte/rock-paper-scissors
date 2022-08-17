@@ -17,6 +17,10 @@ h1 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 64px;
     text-align: center;
+    position: relative;
+    animation-name: appear-slide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 h3 {
@@ -24,6 +28,25 @@ h3 {
     font-size: 24px;
     text-align: center;
 }
+
+@keyframes appear-slide {
+    0% {top: 50px; opacity: 0%;}
+    100% {top: 0px; opacity: 100%;}
+}
+
+@keyframes appear-fade {
+    0% {opacity: 0%;}
+    100% {opacity: 100%}
+}
+
+section {
+    opacity: 0%;
+    animation-name: appear-fade;
+    animation-delay: 0.7s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 
 p {
     font-size: 14px;
@@ -38,6 +61,7 @@ button {
     font-size: 16px;
     height: 50px;
     width: 115px;
+    transition: background-color 0.2s;
 }
 
 button:hover {
@@ -78,6 +102,15 @@ button:hover {
     height: 350px;
 }
 
+.computer-frame, .player-frame {
+    transition: 0.1s;
+}
+
+.frame-highlight {
+    background-color: royalblue;
+    transition: 0.1s;
+}
+
 #computer div, #player div {
     display: flex;
     justify-content: center;
@@ -109,4 +142,16 @@ footer p {
     color: gray;
     font-size: 12px;
     text-transform: uppercase;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    background-color: pink;
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
