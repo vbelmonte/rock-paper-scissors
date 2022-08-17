@@ -4,6 +4,8 @@ let computer = 0;
 let imgPlayer = document.getElementById("player-choice");
 let imgComputer = document.getElementById("computer-choice");
 let message = document.getElementById("message");
+let computerFrame = document.getElementsByClassName("computer-frame");
+let playerFrame = document.getElementsByClassName("player-frame");
 
 function getComputerChoice() {
     let randomNumber = Math.random()*3;
@@ -52,31 +54,45 @@ function determineWinner2(playerSelection, computerSelection) {
     let message = "You chose " + playerSelection + ". Computer chose " + computerSelection + ".";
 
     if (playerSelection == computerSelection) {
+        removeHighlightLoser(computerFrame);
+        removeHighlightLoser(playerFrame);
         return "No winner. " + message;
     }
     else {
         switch(playerSelection) {
             case "rock":
                 if (computerSelection == "scissors") {
+                    highlightWinner(playerFrame);
+                    removeHighlightLoser(computerFrame);
                     return "You win! Rock beats scissors. " + message;
                 }
                 else if (computerSelection == "paper") {
+                    highlightWinner(computerFrame);
+                    removeHighlightLoser(playerFrame);
                     return "You lose! Paper beats rock. " + message;
                 }
                 break;
             case "paper":
                 if (computerSelection == "rock") {
+                    highlightWinner(playerFrame);
+                    removeHighlightLoser(computerFrame);
                     return "You win! Paper beats rock. " + message;
                 }
                 else if (computerSelection == "scissors") {
+                    highlightWinner(computerFrame);
+                    removeHighlightLoser(playerFrame);
                     return "You lose! Scissors beats paper. " + message;
                 }
                 break;
             case "scissors":
                 if (computerSelection == "paper") {
+                    highlightWinner(playerFrame);
+                    removeHighlightLoser(computerFrame);
                     return "You win! Scissors beats paper. " + message;
                 }
                 else if (computerSelection == "rock") {
+                    highlightWinner(computerFrame);
+                    removeHighlightLoser(playerFrame);
                     return "You lose! Rock beats scissors. " + message;
                 }
                 break;
@@ -112,6 +128,15 @@ function announceWinner() {
     let message = result + " Final score: player - " + player + ", computer - " + computer;
     return message;
 }
+
+function highlightWinner(winner) {
+    winner[0].style.backgroundColor = "royalblue";
+}
+
+function removeHighlightLoser(loser) {
+    loser[0].style.backgroundColor = "";
+}
+
 
 /*function game() {
     let roundResult = undefined;
