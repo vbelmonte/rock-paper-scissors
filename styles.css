@@ -16,11 +16,14 @@ a {
 h1 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 64px;
+    opacity: 0%;
     text-align: center;
     position: relative;
     animation-name: appear-slide;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 h3 {
@@ -39,10 +42,24 @@ h3 {
     100% {opacity: 100%}
 }
 
+@keyframes fade-in-icon {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;};
+}
+
+header {
+    text-align: center;
+}
+
+header div {
+    padding: 8px 0px;
+}
+
 section {
+    text-align: center;
     opacity: 0%;
     animation-name: appear-fade;
-    animation-delay: 0.7s;
+    animation-delay: 1.2s;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
@@ -53,19 +70,39 @@ p {
 }
 
 button {
-    border: solid #EF233C 3px;
     border-radius: 12px;
-    background-color: #D90429;
     color: #EDF2F4;
     font-weight: bold;
-    font-size: 16px;
-    height: 50px;
-    width: 115px;
-    transition: background-color 0.2s;
 }
 
 button:hover {
+    transition: 0.3s;
+}
+
+.rps-buttons:hover {
     background-color: #EF233C;
+}
+
+.rps-buttons {
+    border: solid #EF233C 3px;
+    background-color: #D90429;
+    height: 50px;
+    width: 115px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.game-selection {
+    background-color: #000000;
+    font-size: 11px;
+    text-transform: uppercase;
+    height: 30px;
+    width: 108px;
+    border: solid 2px #2B2D42;
+}
+
+.game-selection:hover {
+    background-color: #2B2D42;
 }
 
 .dark-red {
@@ -121,7 +158,7 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 60px 0px;
+    padding: 50px 0px 30px 0px;
 }
 
 .icon {
@@ -144,7 +181,7 @@ footer p {
     text-transform: uppercase;
 }
 
-.popup {
+.popup-game-selection {
     display: none;
     position: absolute;
     width: 700px;

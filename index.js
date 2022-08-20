@@ -193,8 +193,29 @@ function displayComputerSelectionIcon(computerSelection) {
     imgComputer.width = 250;
 }
 
+function removeComputerSelectionIcon() {
+    imgComputer.src = "";
+}
+
+function removePlayerSelectionIcon() {
+    imgPlayer.src = "";
+}
+
 function displayMessage(theMessage) {
     message.textContent = theMessage;
+}
+
+function resetGame() {
+    player = 0;
+    computer = 0;
+    updatePlayerScore(player);
+    updateComputerScore(computer);
+
+    displayMessage("Game has been reset.");
+    removeHighlightLoser("player-frame");
+    removeHighlightLoser("computer-frame");
+    removePlayerSelectionIcon();
+    removeComputerSelectionIcon();
 }
 
 
@@ -202,7 +223,9 @@ function displayMessage(theMessage) {
  * CLICK AND TYPE FUNCTIONS
  * 
 **************************************************************/
-$("button").click(function(event) {
+$(".rps-buttons").click(function(event) {
     /*console.log($(event.target).text());*/
     game($(event.target).text());
 });
+
+$("#reset-game").click(resetGame);
