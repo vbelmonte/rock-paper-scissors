@@ -26,6 +26,11 @@ h1 {
     animation-fill-mode: forwards;
 }
 
+h2 {
+    font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
+    font-size: 40px;
+}
+
 h3 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 24px;
@@ -92,16 +97,25 @@ button:hover {
     transition: 0.3s;
 }
 
-.game-selection {
+.game-selection, .game-mode {
     background-color: #000000;
-    font-size: 11px;
     text-transform: uppercase;
-    height: 30px;
-    width: 108px;
     border: solid 2px #2B2D42;
 }
 
-.game-selection:hover {
+.game-selection {
+    font-size: 11px;
+    height: 30px;
+    width: 108px;
+}
+
+.game-mode {
+    font-size: 24px;
+    height: 80px;
+    width: 300px;
+}
+
+.game-selection:hover, .game-mode:hover {
     background-color: #2B2D42;
 }
 
@@ -183,12 +197,43 @@ footer p {
 
 .popup-game-selection {
     display: none;
-    position: absolute;
-    width: 700px;
-    height: 400px;
-    background-color: pink;
+    position: fixed; /* Stay in place */
+    z-index: 1;
     border-radius: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 100px;
+    overflow: hidden;
+    background-color: #EDF2F4;
+}
+
+.popup-game-selection-content {
+    margin: auto;
+    width: 800px;
+}
+
+.close {
+    font-size: 28px;
+    transition: 0.3s;
+}
+
+.close:hover {
+    cursor: default;
+    color: #2B2D42;
+    transition: 0.3s;
+}
+
+.popup-game-selection-content > div:first-child {
+    text-align: right;
+}
+
+.popup-game-selection-content > div:nth-child(2){
+    text-align: center;
+}
+
+.popup-game-selection-content > div:nth-child(2) > div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }

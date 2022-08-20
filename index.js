@@ -4,6 +4,7 @@ let computer = 0;
 let imgPlayer = document.getElementById("player-choice");
 let imgComputer = document.getElementById("computer-choice");
 let message = document.getElementById("message");
+let gameMode = document.getElementsByClassName("popup-game-selection");
 
 function getComputerChoice() {
     let randomNumber = Math.random()*3;
@@ -229,3 +230,11 @@ $(".rps-buttons").click(function(event) {
 });
 
 $("#reset-game").click(resetGame);
+
+$("#game-mode").click(function() {
+    gameMode[0].style.display = "block";
+});
+
+$(".close").click(function() {
+    gameMode[0].style.display = "none";
+})
