@@ -225,6 +225,15 @@ function displayMessage(theMessage) {
     message.textContent = theMessage;
 }
 
+function appendMessage(theMessage) {
+    message.textContent = message.textContent + theMessage;
+}
+
+function displayGameOverMessage() {
+    let gameResult = announceWinner();
+    $(".game-over-message").text(gameResult);
+}
+
 function resetGame() {
     player = 0;
     computer = 0;
@@ -262,7 +271,11 @@ function gameModeSwitch(playerSelection) {
         incrementRoundCounter();
         if (fiveRoundsCounter == 5) {
             /*game over*/
-            console.log("GAME OVER!");
+            $("body").css("pointer-events", "none");
+            $(".game-over").css("pointer-events", "auto");
+            displayGameOverMessage();
+            $(".game-over").toggleClass("toggle-visibility-property");
+            $(".game-over").css("opacity", "1");
         }
     }
     else {
@@ -271,10 +284,22 @@ function gameModeSwitch(playerSelection) {
 }
 
 function closeWindow() {
+    $("body").css("pointer-events", "auto");
     gameMode[0].style.opacity = "0%";
     setTimeout(function(){
         $(".popup-game-selection").toggleClass("toggle-visibility-property");
       }, 100);
+}
+
+function openWindow() {
+    
+}
+
+function closeGameOverWindow() {
+    $(".game-over").css("opacity", "0");
+    setTimeout(function() {
+        $(".game-over").toggleClass("toggle-visibility-property");
+    }, 100);
 }
 
 
@@ -288,7 +313,24 @@ $(".rps-buttons").click(function(event) {
     gameModeSwitch($(event.target).text());
 });
 
-$("#reset-game").click(resetGame);
+$(".reset-game").click(resetGame);
+
+$(".restart-game").click(function() {
+    resetGame();
+    closeGameOverWindow();
+    $("body").css("pointer-events", "auto");
+    /*$(".game-over").css("opacity", "0");
+    setTimeout(function() {
+        $(".game-over").toggleClass("toggle-visibility-property");
+    }, 100);*/
+});
+
+$(".game-over-game-mode").click(function() {
+    closeGameOverWindow();
+    $(".popup-game-selection").css("pointer-events", "auto");
+    $(".popup-game-selection").toggleClass("toggle-visibility-property");
+    gameMode[0].style.opacity = "100%";
+});
 
 $("#game-mode").click(function() {
     $(".popup-game-selection").toggleClass("toggle-visibility-property");

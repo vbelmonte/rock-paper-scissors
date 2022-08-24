@@ -16,12 +16,24 @@
         <header>
             <h1 class="dark-red">Rock, Paper, Scissors</h1>
         </header>
+        <div class="game-over toggle-visibility-property">
+            <div class="game-over-content">
+                <div class="popup-content-center">
+                    <h2>Game Over!</h2>
+                    <p class="game-over-message"></p>
+                    <div>
+                        <button class="game-mode reset-game restart-game">Restart Game</button>
+                        <button class="game-mode game-over-game-mode">Game Mode</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="popup-game-selection toggle-visibility-property">
             <div class="popup-game-selection-content">
                 <div>
                     <span class="close">&times;</span>
                 </div>
-                <div>
+                <div class="popup-content-center">
                     <h2>Select Game Mode</h2>
                     <p class="warning-message"><b class="warning-headline">WARNING</b><br>
                     Selecting any of the following Game Modes will reset your score.</p>
@@ -66,7 +78,7 @@
                 <button class="rps-buttons" id="scissors">Scissors</button>
             </div>
             <div>
-                <button class="game-selection" id="reset-game">Reset Game</button>
+                <button class="game-selection reset-game">Reset Game</button>
                 <button class="game-selection" id="game-mode">Game Mode</button>
             </div>
         </section>
