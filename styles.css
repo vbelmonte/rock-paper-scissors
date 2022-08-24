@@ -16,6 +16,7 @@ a {
 h1 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 64px;
+    margin: 36px;
     opacity: 0%;
     text-align: center;
     position: relative;
@@ -72,6 +73,7 @@ section {
 
 p {
     font-size: 14px;
+    line-height: 24px;
 }
 
 button {
@@ -196,16 +198,22 @@ footer p {
 }
 
 .popup-game-selection {
-    display: none;
+    display: block;
     position: fixed; /* Stay in place */
     z-index: 1;
     border-radius: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 100px;
+    padding: 50px;
     overflow: hidden;
     background-color: #EDF2F4;
+    opacity: 0%;
+    transition: opacity 0.1s ease-in;
+}
+
+.toggle-visibility-property {
+    visibility: hidden;
 }
 
 .popup-game-selection-content {
@@ -215,7 +223,6 @@ footer p {
 
 .close {
     font-size: 28px;
-    transition: 0.3s;
 }
 
 .close:hover {
@@ -235,5 +242,11 @@ footer p {
 .popup-game-selection-content > div:nth-child(2) > div {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 30px 0px;
+    padding: 20px 0px;
+}
+
+.warning-headline {
+    color: #D90429;
 }

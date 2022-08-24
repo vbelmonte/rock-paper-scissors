@@ -16,16 +16,18 @@
         <header>
             <h1 class="dark-red">Rock, Paper, Scissors</h1>
         </header>
-        <div class="popup-game-selection">
+        <div class="popup-game-selection toggle-visibility-property">
             <div class="popup-game-selection-content">
                 <div>
                     <span class="close">&times;</span>
                 </div>
                 <div>
                     <h2>Select Game Mode</h2>
+                    <p class="warning-message"><b class="warning-headline">WARNING</b><br>
+                    Selecting any of the following Game Modes will reset your score.</p>
                     <div>
-                        <button class="game-mode">5 Rounds</button>
-                        <button class="game-mode">Unlimited Rounds</button>
+                        <button class="game-mode" id="five-rounds">5 Rounds</button>
+                        <button class="game-mode" id="unlimited-rounds">Unlimited Rounds</button>
                     </div>
                 </div>
             </div>

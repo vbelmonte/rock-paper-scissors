@@ -5,6 +5,8 @@ let imgPlayer = document.getElementById("player-choice");
 let imgComputer = document.getElementById("computer-choice");
 let message = document.getElementById("message");
 let gameMode = document.getElementsByClassName("popup-game-selection");
+let fiveRoundsModeFlag = false;
+let fiveRoundsCounter = 0;
 
 function getComputerChoice() {
     let randomNumber = Math.random()*3;
@@ -99,6 +101,14 @@ function determineWinner2(playerSelection, computerSelection) {
     }
 }
 
+function determineGameWinner() {
+    if (player > computer) {
+        displayMessage("You won!");
+    }
+    else {
+        displayMessage("Computer won!");
+    }
+}
 
 function keepScore(entry) {
     if (entry[4] == "w") {
@@ -108,6 +118,12 @@ function keepScore(entry) {
     else if (entry[4] == "l") {
         computer++;
         updateComputerScore(computer);
+    }
+}
+
+function incrementRoundCounter() {
+    if ((player+computer) > fiveRoundsCounter) {
+        fiveRoundsCounter++;
     }
 }
 
@@ -136,6 +152,9 @@ function removeHighlightLoser(loser) {
     $("." + loser).removeClass("frame-highlight");
 }
 
+function resetFiveRoundsCounter() {
+    fiveRoundsCounter = 0;
+}
 
 /*function game() {
     let roundResult = undefined;
@@ -217,6 +236,45 @@ function resetGame() {
     removeHighlightLoser("computer-frame");
     removePlayerSelectionIcon();
     removeComputerSelectionIcon();
+    resetFiveRoundsCounter();
+}
+
+function turnOnFiveRoundsMode() {
+    toggleFiveRoundsModeFlag(true);
+    resetGame();
+    displayMessage("5 Rounds Mode has started.");
+}
+
+
+function toggleFiveRoundsModeFlag(trueOrFalse) {
+    fiveRoundsModeFlag = trueOrFalse;
+}
+
+function turnOnUnlimitedMode() {
+    toggleFiveRoundsModeFlag(false);
+    resetGame();
+    displayMessage("Unlmited Mode has started.");
+}
+
+function gameModeSwitch(playerSelection) {
+    if (fiveRoundsModeFlag == true) {
+        game(playerSelection);
+        incrementRoundCounter();
+        if (fiveRoundsCounter == 5) {
+            /*game over*/
+            console.log("GAME OVER!");
+        }
+    }
+    else {
+        game(playerSelection);
+    }
+}
+
+function closeWindow() {
+    gameMode[0].style.opacity = "0%";
+    setTimeout(function(){
+        $(".popup-game-selection").toggleClass("toggle-visibility-property");
+      }, 100);
 }
 
 
@@ -226,15 +284,31 @@ function resetGame() {
 **************************************************************/
 $(".rps-buttons").click(function(event) {
     /*console.log($(event.target).text());*/
-    game($(event.target).text());
+    /*game($(event.target).text());*/
+    gameModeSwitch($(event.target).text());
 });
 
 $("#reset-game").click(resetGame);
 
 $("#game-mode").click(function() {
-    gameMode[0].style.display = "block";
+    $(".popup-game-selection").toggleClass("toggle-visibility-property");
+    gameMode[0].style.opacity = "100%";
 });
 
 $(".close").click(function() {
-    gameMode[0].style.display = "none";
-})
+    closeWindow();
+    /*gameMode[0].style.opacity = "0%";
+    setTimeout(function(){
+        $(".popup-game-selection").toggleClass("toggle-visibility-property");
+      }, 100);*/
+});
+
+$("#five-rounds").click(function() {
+    turnOnFiveRoundsMode();
+    closeWindow();
+});
+
+$("#unlimited-rounds").click(function() {
+    turnOnUnlimitedMode();
+    closeWindow();
+});
