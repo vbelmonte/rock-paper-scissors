@@ -16,42 +16,10 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    return determineWinner2(playerSelection.toLowerCase(), computerSelection.toLowerCase());
+    return determineWinner(playerSelection.toLowerCase(), computerSelection.toLowerCase());
 }
 
 function determineWinner(playerSelection, computerSelection) {
-    let message = "You chose " + playerSelection + ". Computer chose " + computerSelection + ".";
-
-    if (playerSelection == computerSelection) {
-        return "No winner." + message;
-    }
-    else if (playerSelection == "rock") {
-        if (computerSelection == "scissors") {
-            return "You win! Rock beats scissors. " + message;
-        }
-        else if (computerSelection == "paper") {
-            return "You lose! Paper beats rock. " + message;
-        }
-    }
-    else if (playerSelection == "paper") {
-        if (computerSelection == "rock") {
-            return "You win! Paper beats rock. " + message;
-        }
-        else if (computerSelection == "scissors") {
-            return "You lose! Scissors beats paper. " + message;
-        }
-    }
-    else if (playerSelection == "scissors") {
-        if (computerSelection == "paper") {
-            return "You win! Scissors beats paper. " + message;
-        }
-        else if (computerSelection == "rock") {
-            return "You lose! Rock beats scissors. " + message;
-        }
-    }
-}
-
-function determineWinner2(playerSelection, computerSelection) {
     let message = "You chose " + playerSelection + ". Computer chose " + computerSelection + ".";
 
     if (playerSelection == computerSelection) {
@@ -156,26 +124,6 @@ function resetFiveRoundsCounter() {
     fiveRoundsCounter = 0;
 }
 
-/*function game() {
-    let roundResult = undefined;
-    let computerChoice = undefined;
-    let gameResult = undefined;
-
-    computerChoice = getComputerChoice();
-    roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
-    keepScore(roundResult);
-
-    for (let i = 0; i < 5; i++) {
-        computerChoice = getComputerChoice();
-        roundResult = playRound(prompt("Choose rock, paper, or scissors."), computerChoice);
-        keepScore(roundResult);
-        console.log(roundResult);
-    }
-    
-    console.log(announceWinner());
-
-}*/
-
 function game(playerSelection) {
     let computerChoice = getComputerChoice();
     let roundResult = playRound(playerSelection, computerChoice);
@@ -225,10 +173,6 @@ function displayMessage(theMessage) {
     message.textContent = theMessage;
 }
 
-function appendMessage(theMessage) {
-    message.textContent = message.textContent + theMessage;
-}
-
 function displayGameOverMessage() {
     let gameResult = announceWinner();
     $(".game-over-message").text(gameResult);
@@ -253,7 +197,6 @@ function turnOnFiveRoundsMode() {
     resetGame();
     displayMessage("5 Rounds Mode has started.");
 }
-
 
 function toggleFiveRoundsModeFlag(trueOrFalse) {
     fiveRoundsModeFlag = trueOrFalse;
@@ -291,17 +234,12 @@ function closeWindow() {
       }, 100);
 }
 
-function openWindow() {
-    
-}
-
 function closeGameOverWindow() {
     $(".game-over").css("opacity", "0");
     setTimeout(function() {
         $(".game-over").toggleClass("toggle-visibility-property");
     }, 100);
 }
-
 
 function glowFrame(playerSelection) {
     $(".player-frame").addClass("frame-glow");
@@ -321,8 +259,6 @@ function buttonPress(selection) {
  * 
 **************************************************************/
 $(".rps-buttons").click(function(event) {
-    /*console.log($(event.target).text());*/
-    /*game($(event.target).text());*/
     gameModeSwitch($(event.target).text());
     glowFrame();
 });
@@ -333,10 +269,6 @@ $(".restart-game").click(function() {
     resetGame();
     closeGameOverWindow();
     $("body").css("pointer-events", "auto");
-    /*$(".game-over").css("opacity", "0");
-    setTimeout(function() {
-        $(".game-over").toggleClass("toggle-visibility-property");
-    }, 100);*/
 });
 
 $(".game-over-game-mode").click(function() {
@@ -355,10 +287,6 @@ $("#game-mode").click(function() {
 
 $(".close").click(function() {
     closeWindow();
-    /*gameMode[0].style.opacity = "0%";
-    setTimeout(function(){
-        $(".popup-game-selection").toggleClass("toggle-visibility-property");
-      }, 100);*/
 });
 
 $("#five-rounds").click(function() {
