@@ -303,6 +303,19 @@ function closeGameOverWindow() {
 }
 
 
+function glowFrame(playerSelection) {
+    $(".player-frame").addClass("frame-glow");
+    $(".computer-frame").addClass("frame-glow");
+    setTimeout(function() {
+        $(".player-frame").removeClass("frame-glow");
+        $(".computer-frame").removeClass("frame-glow");
+    }, 200);
+}
+
+function buttonPress(selection) {
+    $("'#" + selection.toLowerCase() + "'").addClass("")
+}
+
 /************************************************************** 
  * CLICK AND TYPE FUNCTIONS
  * 
@@ -311,6 +324,7 @@ $(".rps-buttons").click(function(event) {
     /*console.log($(event.target).text());*/
     /*game($(event.target).text());*/
     gameModeSwitch($(event.target).text());
+    glowFrame();
 });
 
 $(".reset-game").click(resetGame);

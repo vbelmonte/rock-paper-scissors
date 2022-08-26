@@ -97,7 +97,15 @@ button:hover {
     width: 115px;
     font-size: 16px;
     transition: 0.3s;
+    box-shadow: 0 9px #b30221;
 }
+
+.rps-buttons:active {
+    background-color: #EF233C;
+    box-shadow: 0 5px #b30221;
+    transform: translateY(4px);
+    transition: 0.3s;
+  }
 
 .game-selection, .game-mode {
     background-color: #000000;
@@ -109,6 +117,12 @@ button:hover {
     font-size: 11px;
     height: 30px;
     width: 108px;
+    box-shadow: 0 9px #000000;
+}
+
+.game-selection:active {
+    box-shadow: 0 5px #000000;
+    transform: translateY(4px);
 }
 
 .game-mode {
@@ -134,12 +148,13 @@ button:hover {
 }
 
 #message {
-    background-color: #2B2D42;
-    color: #EDF2F4;
+    /*background-color: #2B2D42;
+    color: #EDF2F4;*/
+    color: #2B2D42;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 4px 8px;
     margin: 0;
-    border-radius: 16px;
+    /*border-radius: 16px;*/
 }
 
 .game-area {
@@ -162,6 +177,10 @@ button:hover {
 .frame-highlight {
     background-color: royalblue;
     transition: 0.1s;
+}
+
+.frame-glow {
+    box-shadow: 0px 0px 30px 5px #2B2D42;
 }
 
 #computer div, #player div {
