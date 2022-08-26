@@ -347,6 +347,8 @@ $(".game-over-game-mode").click(function() {
 });
 
 $("#game-mode").click(function() {
+    $("body").css("pointer-events", "none");
+    $(".popup-game-selection").css("pointer-events", "auto");
     $(".popup-game-selection").toggleClass("toggle-visibility-property");
     gameMode[0].style.opacity = "100%";
 });
