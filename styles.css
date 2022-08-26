@@ -303,7 +303,7 @@ footer p {
 .game-over-content {
     margin: auto;
     width: 800px;
-    padding: 30px;
+    padding: 30px 30px 50px 30px;
     background-color: #EDF2F4;
     border-radius: 16px;
 }
@@ -314,4 +314,8 @@ footer p {
     gap: 14px;
     margin: 30px 0px;
     padding: 20px 0px;
+}
+
+.game-over-message {
+    margin-bottom: 40px;
 }

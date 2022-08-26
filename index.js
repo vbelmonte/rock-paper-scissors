@@ -140,7 +140,7 @@ function announceWinner() {
         result = "No winner. Tied game.";
     }
 
-    let message = result + " Final score: player - " + player + ", computer - " + computer;
+    let message = result + " Final score: player: " + player + ", computer: " + computer;
     return message;
 }
 
