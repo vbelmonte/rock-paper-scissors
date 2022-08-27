@@ -234,6 +234,14 @@ function closeWindow() {
       }, 100);
 }
 
+function closeWindowTest(className) {
+    $("body").css("pointer-events", "auto");
+    $(className).css("opacity", "0");
+    setTimeout(function(){
+        $(className).toggleClass("toggle-visibility-property");
+      }, 100);
+}
+
 function closeGameOverWindow() {
     $(".game-over").css("opacity", "0");
     setTimeout(function() {
@@ -285,18 +293,32 @@ $("#game-mode").click(function() {
     gameMode[0].style.opacity = "100%";
 });
 
-$(".close").click(function() {
-    closeWindow();
+$("#close-game-mode").click(function() {
+    /*closeWindow();*/
+    closeWindowTest(".popup-game-selection");
 });
 
 $("#five-rounds").click(function() {
     turnOnFiveRoundsMode();
     $("#current-game-mode").text("5 Rounds");
-    closeWindow();
+    /*closeWindow();*/
+    closeWindowTest(".popup-game-selection");
 });
 
 $("#unlimited-rounds").click(function() {
     turnOnUnlimitedMode();
     $("#current-game-mode").text("Unlimited");
-    closeWindow();
+    /*closeWindow();*/
+    closeWindowTest(".popup-game-selection");
+});
+
+$("#open-credits").click(function() {
+    $("body").css("pointer-events", "none");
+    $(".credits").css("pointer-events", "auto");
+    $(".credits").toggleClass("toggle-visibility-property");
+    $(".credits").css("opacity", "1");
+});
+
+$("#close-credits").click(function() {
+    closeWindowTest(".credits");
 });

@@ -13,6 +13,11 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #D90429;
+    cursor: pointer;
+}
+
 h1 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 64px;
@@ -230,15 +235,23 @@ footer p {
     z-index: 1;
     width: 100%;
     height: 100%;
-    display: flex;
     overflow: hidden;
+    display: flex;
     background-color: rgba(0,0,0,0.4);
     opacity: 0%;
     transition: opacity 0.1s ease-in;
 }
 
 .credits-content {
+    margin: auto;
+    width: 800px;
+    padding: 30px 30px 60px;
+    background-color: #EDF2F4;
+    border-radius: 16px;
+}
 
+.credits-content > div:first-child {
+    text-align: right;
 }
 
 .popup-game-selection {
