@@ -291,10 +291,12 @@ $(".close").click(function() {
 
 $("#five-rounds").click(function() {
     turnOnFiveRoundsMode();
+    $("#current-game-mode").text("5 Rounds");
     closeWindow();
 });
 
 $("#unlimited-rounds").click(function() {
     turnOnUnlimitedMode();
+    $("#current-game-mode").text("Unlimited");
     closeWindow();
 });

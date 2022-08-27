@@ -47,7 +47,7 @@
         <section>
             <div class="main-area">
                 <div class="message-area">
-                    <p id="message">Hello</p>
+                    <b><p id="message">Press Rock, Paper, or Scissors to start playing!</p></b>
                 </div>
                 <div class="game-area">
                     <div id="player">
@@ -77,15 +77,28 @@
                 <button class="rps-buttons" id="paper">Paper</button>
                 <button class="rps-buttons" id="scissors">Scissors</button>
             </div>
-            <div>
+            <div class="game-selection-buttons">
                 <button class="game-selection reset-game">Reset Game</button>
                 <button class="game-selection" id="game-mode">Game Mode</button>
+            </div>
+            <div message="game-mode-section">
+                <h4>Current Game Mode: <span id="current-game-mode">Unlimited</span></h4>
             </div>
         </section>
         <footer>
             <a href="https://github.com/vbelmonte/" target="_blank"><img class="icon" src="Images/github-icon.svg"></a>
-            <p>Designed and developed by <a href="https://github.com/vbelmonte/" target="_blank">Villy Belmonte</a></p>
-            <a href="https://www.flaticon.com/free-icons/paper" title="paper icons" target="_blank">Paper icons created by Freepik - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/rock" title="rock icons" target="_blank">Rock icons created by Icongeek26 - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons" target="_blank">Scissors icons created by Freepik - Flaticon</a>
+            <p>Designed and developed by <a href="https://github.com/vbelmonte/" target="_blank">Villy Belmonte</a> / <a>Credits</a></p>
+            <!-- <a href="https://www.flaticon.com/free-icons/paper" title="paper icons" target="_blank">Paper icons created by Freepik - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/rock" title="rock icons" target="_blank">Rock icons created by Icongeek26 - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons" target="_blank">Scissors icons created by Freepik - Flaticon</a> -->
+            <div class="credits">
+                <div class="close">
+                    &times;
+                </div>
+                <div class="credits-content">
+                    <a href="https://www.flaticon.com/free-icons/paper" title="paper icons" target="_blank">Paper icons created by Freepik - Flaticon</a><br>
+                    <a href="https://www.flaticon.com/free-icons/rock" title="rock icons" target="_blank">Rock icons created by Icongeek26 - Flaticon</a><br>
+                    <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons" target="_blank">Scissors icons created by Freepik - Flaticon</a>
+                </div>
+            </div>
         </footer>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
