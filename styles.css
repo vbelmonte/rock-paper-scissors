@@ -37,6 +37,10 @@ h2 {
     font-size: 40px;
 }
 
+#h2-game-over {
+    color: #D90429;
+}
+
 h3 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 24px;
@@ -162,6 +166,10 @@ button:hover {
     text-align: center;
 }
 
+.message-img {
+    width: 32px;
+}
+
 #message {
     color: #2B2D42;
     display: inline-block;
@@ -179,8 +187,8 @@ button:hover {
 .frame {
     border: solid #2B2D42 4px;
     border-radius: 16px;
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
 }
 
 .computer-frame, .player-frame {
