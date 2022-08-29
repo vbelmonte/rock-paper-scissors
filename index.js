@@ -5,7 +5,7 @@ let imgPlayer = document.getElementById("player-choice");
 let imgComputer = document.getElementById("computer-choice");
 let message = document.getElementById("message");
 let gameMode = document.getElementsByClassName("popup-game-selection");
-let fiveRoundsModeFlag = false;
+let fivePointsModeFlag = false;
 let fiveRoundsCounter = 0;
 
 function getComputerChoice() {
@@ -86,12 +86,6 @@ function keepScore(entry) {
     else if (entry[4] == "l") {
         computer++;
         updateComputerScore(computer);
-    }
-}
-
-function incrementRoundCounter() {
-    if ((player+computer) > fiveRoundsCounter) {
-        fiveRoundsCounter++;
     }
 }
 
@@ -192,27 +186,26 @@ function resetGame() {
     resetFiveRoundsCounter();
 }
 
-function turnOnFiveRoundsMode() {
-    toggleFiveRoundsModeFlag(true);
+function turnOnFivePointsMode() {
+    toggleFivePointsModeFlag(true);
     resetGame();
-    displayMessage("5 Rounds Mode has started.");
+    displayMessage("5 Points Mode has started.");
 }
 
-function toggleFiveRoundsModeFlag(trueOrFalse) {
-    fiveRoundsModeFlag = trueOrFalse;
+function toggleFivePointsModeFlag(trueOrFalse) {
+    fivePointsModeFlag = trueOrFalse;
 }
 
 function turnOnUnlimitedMode() {
-    toggleFiveRoundsModeFlag(false);
+    toggleFivePointsModeFlag(false);
     resetGame();
     displayMessage("Unlmited Mode has started.");
 }
 
 function gameModeSwitch(playerSelection) {
-    if (fiveRoundsModeFlag == true) {
+    if (fivePointsModeFlag == true) {
         game(playerSelection);
-        incrementRoundCounter();
-        if (fiveRoundsCounter == 5) {
+        if (player == 5 || computer == 5) {
             /*game over*/
             $("body").css("pointer-events", "none");
             $(".game-over").css("pointer-events", "auto");
@@ -298,8 +291,8 @@ $("#close-game-mode").click(function() {
     closeWindowTest(".popup-game-selection");
 });
 
-$("#five-rounds").click(function() {
-    turnOnFiveRoundsMode();
+$("#five-points").click(function() {
+    turnOnFivePointsMode();
     $("#current-game-mode").text("5 Rounds");
     /*closeWindow();*/
     closeWindowTest(".popup-game-selection");
