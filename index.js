@@ -102,7 +102,12 @@ function announceWinner() {
         result = "No winner. Tied game.";
     }
 
-    let message = result + " Final score: player: " + player + ", computer: " + computer;
+    let message = result;
+    return message;
+}
+
+function announceFinalScore() {
+    let message = "Player: " + player + ", Computer: " + computer;
     return message;
 }
 
@@ -168,7 +173,9 @@ function displayMessage(theMessage) {
 }
 
 function displayGameOverMessage() {
-    let gameResult = announceWinner();
+    let winnerResult = announceWinner();
+    let gameResult = announceFinalScore();
+    $(".game-over-winner-loser").text(winnerResult);
     $(".game-over-message").text(gameResult);
 }
 
