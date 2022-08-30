@@ -35,10 +35,12 @@ h1 {
 h2 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
     font-size: 40px;
+    margin: 0;
 }
 
 #h2-game-over {
     color: #D90429;
+    margin: 12px 0px;
 }
 
 h3 {
@@ -285,6 +287,12 @@ footer p {
     padding: 30px;
     background-color: #EDF2F4;
     border-radius: 16px;
+}
+
+#game-selection-description {
+    opacity: 0;
+    height: 12px;
+    transition: opacity 0.1s ease-in;
 }
 
 .close {

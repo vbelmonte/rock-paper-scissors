@@ -287,23 +287,42 @@ $("#game-mode").click(function() {
 });
 
 $("#close-game-mode").click(function() {
-    /*closeWindow();*/
     closeWindowTest(".popup-game-selection");
 });
 
 $("#five-points").click(function() {
     turnOnFivePointsMode();
-    $("#current-game-mode").text("5 Rounds");
-    /*closeWindow();*/
+    $("#current-game-mode").text("5 Points");
     closeWindowTest(".popup-game-selection");
 });
+
+$("#five-points").hover(
+    function() {
+        $("#game-selection-description").css("opacity", 1);
+        $("#game-selection-description").text("First player to 5 points wins the game.");
+    },
+    function() {
+        $("#game-selection-description").css("opacity", 0);
+        $("#game-selection-description").text("");
+    }
+);
 
 $("#unlimited-rounds").click(function() {
     turnOnUnlimitedMode();
     $("#current-game-mode").text("Unlimited");
-    /*closeWindow();*/
     closeWindowTest(".popup-game-selection");
 });
+
+$("#unlimited-rounds").hover(
+    function() {
+        $("#game-selection-description").css("opacity", 1);
+        $("#game-selection-description").text("Play an unending game of Rock, Paper, Scissors.");
+    },
+    function() {
+        $("#game-selection-description").css("opacity", 0);
+        $("#game-selection-description").text("");
+    }
+);
 
 $("#open-credits").click(function() {
     $("body").css("pointer-events", "none");
