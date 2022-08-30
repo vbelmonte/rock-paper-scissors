@@ -34,11 +34,12 @@ h1 {
 
 h2 {
     font-family: "Bebas Neue", "Impact", "Arial", sans-serif;
-    font-size: 40px;
+    font-size: 42px;
     margin: 0;
 }
 
 #h2-game-over {
+    font-size: 64px;
     color: #D90429;
     margin: 12px 0px;
 }
@@ -88,7 +89,7 @@ section {
 }
 
 p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
 }
 
@@ -297,11 +298,20 @@ footer p {
 
 .close {
     font-size: 28px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 4px 12px;
 }
 
 .close:hover {
     cursor: default;
-    color: #2B2D42;
+    color: #EDF2F4;
+    background-color: #2B2D42;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 4px 12px;
     transition: 0.3s;
 }
 
@@ -341,7 +351,7 @@ footer p {
 .game-over-content {
     margin: auto;
     width: 800px;
-    padding: 30px;
+    padding: 50px 30px 30px 30px;
     background-color: #EDF2F4;
     border-radius: 16px;
 }
@@ -355,7 +365,7 @@ footer p {
 }
 
 .game-over-winner-loser {
-
+    font-size: 42px;
 }
 
 .game-over-message {
