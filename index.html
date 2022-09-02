@@ -6,12 +6,111 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Rock, Paper, Scissors</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
 
     <body>
-
-    
-        <script src="index.js"></script>
+        <header>
+            <h1 class="dark-red">Rock, Paper, Scissors</h1>
+        </header>
+        <div class="game-over toggle-visibility-property">
+            <div class="game-over-content">
+                <div class="popup-content-center">
+                    <h2 id="h2-game-over">Game Over!</h2>
+                    <h3 class="game-over-winner-loser"></h3>
+                    <p class="game-over-message"></p>
+                    <div>
+                        <button class="game-mode reset-game restart-game">Restart Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-game-selection toggle-visibility-property">
+            <div class="popup-game-selection-content">
+                <div>
+                    <div class="close" id="close-game-mode">&times;</div>
+                </div>
+                <div class="popup-content-center">
+                    <h2>Select Game Mode</h2>
+                    <p class="warning-message"><b class="warning-headline">WARNING</b><br>
+                    Selecting any of the following Game Modes will reset your score.</p>
+                    <b><p id="game-selection-description"></p></b>
+                    <div>
+                        <button class="game-mode" id="five-points">5 Points</button>
+                        <button class="game-mode" id="unlimited-rounds">Unlimited Rounds</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credits toggle-visibility-property">
+            <div class="credits-content">
+                <div>
+                    <span class="close" id="close-credits">&times;</span>
+                </div>
+                <div class="popup-content-center">
+                    <h2>Credits</h2>
+                    <p><a href="https://www.flaticon.com/free-icons/paper" title="paper icons" target="_blank">Paper icons created by Freepik - Flaticon</a></p>
+                    <p><a href="https://www.flaticon.com/free-icons/rock" title="rock icons" target="_blank">Rock icons created by Icongeek26 - Flaticon</a></p>
+                    <p><a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons" target="_blank">Scissors icons created by Freepik - Flaticon</a></p>
+                    <p><a href="https://www.flaticon.com/free-icons/announcer" title="announcer icons" target="_blank">Announcer icons created by sketchandbuild - Flaticon</a></p>
+            </div>
+            </div>
+        </div>
+        <main>
+            <div class="main-area">
+                <div class="message-area">
+                    <div>
+                        <img class="message-img" src="Images/Announcer.png">
+                    </div>
+                    <b><p id="message">Press Rock, Paper, or Scissors to start playing!</p></b>
+                </div>
+                <div class="game-area">
+                    <div id="player">
+                        <div>
+                            <h3 class="dark-blue">Player: <span id="player-score">0</span></h3>
+                        </div>
+                        <div class="frame player-frame">
+                            <div>
+                                <img id="player-choice">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="computer">
+                        <div>
+                            <h3 class="dark-blue">Computer: <span id="computer-score">0</span></h3>
+                        </div>
+                        <div class="frame computer-frame">
+                            <div>
+                                <img id="computer-choice" src="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="rps-buttons" id="rock">Rock</button>
+                <button class="rps-buttons" id="paper">Paper</button>
+                <button class="rps-buttons" id="scissors">Scissors</button>
+            </div>
+            <div class="game-selection-buttons">
+                <button class="game-selection reset-game">Reset Game</button>
+                <button class="game-selection" id="game-mode">Game Mode</button>
+            </div>
+            <div message="game-mode-section">
+                <h4>Current Game Mode: <span id="current-game-mode">Unlimited</span></h4>
+            </div>
+        </main>
+        <footer>
+            <a href="https://github.com/vbelmonte/" target="_blank"><img class="icon" src="Images/github-icon.svg"></a>
+            <p>Designed and developed by <a href="https://github.com/vbelmonte/" target="_blank">Villy Belmonte</a> / <a id="open-credits">Credits</a></p>
+            <!-- <a href="https://www.flaticon.com/free-icons/paper" title="paper icons" target="_blank">Paper icons created by Freepik - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/rock" title="rock icons" target="_blank">Rock icons created by Icongeek26 - Flaticon</a>, <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons" target="_blank">Scissors icons created by Freepik - Flaticon</a> -->
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </body>
 
 </html>
