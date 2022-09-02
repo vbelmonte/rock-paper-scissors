@@ -8,6 +8,39 @@ let gameMode = document.getElementsByClassName("popup-game-selection");
 let fivePointsModeFlag = false;
 let fiveRoundsCounter = 0;
 
+
+/************************************************************** 
+ * GAMEPLAY FUNCTIONS
+ * 
+**************************************************************/
+function game(playerSelection) {
+    let computerChoice = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerChoice);
+
+    displayComputerSelectionIcon(computerChoice);
+    displayPlayerSelectionIcon(playerSelection);
+    keepScore(roundResult);
+    displayMessage(roundResult);
+    console.log(roundResult);
+}
+
+function gameModeSwitch(playerSelection) {
+    if (fivePointsModeFlag == true) {
+        game(playerSelection);
+        if (player == 5 || computer == 5) {
+            /*game over*/
+            $("body").css("pointer-events", "none");
+            $(".game-over").css("pointer-events", "auto");
+            displayGameOverMessage();
+            $(".game-over").toggleClass("toggle-visibility-property");
+            $(".game-over").css("opacity", "1");
+        }
+    }
+    else {
+        game(playerSelection);
+    }
+}
+
 function getComputerChoice() {
     let randomNumber = Math.random()*3;
     let flooredRandomNumber = Math.floor(randomNumber);
@@ -15,11 +48,16 @@ function getComputerChoice() {
     return choice;
 }
 
-function playRound(playerSelection, computerSelection) {
-    return determineWinner(playerSelection.toLowerCase(), computerSelection.toLowerCase());
+function determineGameWinner() {
+    if (player > computer) {
+        displayMessage("You won!");
+    }
+    else {
+        displayMessage("Computer won!");
+    }
 }
 
-function determineWinner(playerSelection, computerSelection) {
+function determineRoundWinner(playerSelection, computerSelection) {
     let message = "You chose " + playerSelection + ". Computer chose " + computerSelection + ".";
 
     if (playerSelection == computerSelection) {
@@ -69,15 +107,6 @@ function determineWinner(playerSelection, computerSelection) {
     }
 }
 
-function determineGameWinner() {
-    if (player > computer) {
-        displayMessage("You won!");
-    }
-    else {
-        displayMessage("Computer won!");
-    }
-}
-
 function keepScore(entry) {
     if (entry[4] == "w") {
         player++;
@@ -87,6 +116,55 @@ function keepScore(entry) {
         computer++;
         updateComputerScore(computer);
     }
+}
+
+function playRound(playerSelection, computerSelection) {
+    return determineRoundWinner(playerSelection.toLowerCase(), computerSelection.toLowerCase());
+}
+
+function resetFiveRoundsCounter() {
+    fiveRoundsCounter = 0;
+}
+
+function resetGame() {
+    player = 0;
+    computer = 0;
+    updatePlayerScore(player);
+    updateComputerScore(computer);
+
+    displayMessage("Game has been reset.");
+    removeHighlightLoser("player-frame");
+    removeHighlightLoser("computer-frame");
+    removePlayerSelectionIcon();
+    removeComputerSelectionIcon();
+    resetFiveRoundsCounter();
+}
+
+function toggleFivePointsModeFlag(trueOrFalse) {
+    fivePointsModeFlag = trueOrFalse;
+}
+
+function turnOnFivePointsMode() {
+    toggleFivePointsModeFlag(true);
+    resetGame();
+    displayMessage("5 Points Mode has started.");
+}
+
+function turnOnUnlimitedMode() {
+    toggleFivePointsModeFlag(false);
+    resetGame();
+    displayMessage("Unlmited Mode has started.");
+}
+
+
+
+/************************************************************** 
+ * MESSAGE AND TEXT FUNCTIONS
+ * 
+**************************************************************/
+function announceFinalScore() {
+    let message = "Player: " + player + ", Computer: " + computer;
+    return message;
 }
 
 function announceWinner() {
@@ -106,9 +184,66 @@ function announceWinner() {
     return message;
 }
 
-function announceFinalScore() {
-    let message = "Player: " + player + ", Computer: " + computer;
-    return message;
+function displayGameOverMessage() {
+    let winnerResult = announceWinner();
+    let gameResult = announceFinalScore();
+    $(".game-over-winner-loser").text(winnerResult);
+    $(".game-over-message").text(gameResult);
+}
+
+function displayMessage(theMessage) {
+    message.textContent = theMessage;
+}
+
+function updateComputerScore(score) {
+    let computerScore = document.getElementById("computer-score");
+    computerScore.textContent = score;
+}
+
+function updatePlayerScore(score) {
+    let playerScore = document.getElementById("player-score");
+    playerScore.textContent = score;
+}
+
+
+
+/************************************************************** 
+ * MODAL BOX FUNCTIONS
+ * 
+**************************************************************/
+
+function closeWindow(className) {
+    $("body").css("pointer-events", "auto");
+    $(className).css("opacity", "0");
+    setTimeout(function(){
+        $(className).toggleClass("toggle-visibility-property");
+      }, 100);
+}
+
+function openWindow(className) {
+    $("body").css("pointer-events", "none");
+    $(className).css("pointer-events", "auto");
+    $(className).toggleClass("toggle-visibility-property");
+    $(className).css("opacity", "1");
+}
+
+
+
+/************************************************************** 
+ * TRANSITION EFFECT FUNCTIONS
+ * 
+**************************************************************/
+function buttonPress(selection) {
+    $("'#" + selection.toLowerCase() + "'").addClass("")
+}
+
+function glowFrame(playerSelection) {
+    $(".player-frame").addClass("frame-glow");
+    $(".computer-frame").addClass("frame-glow");
+    setTimeout(function() {
+        $(".player-frame").removeClass("frame-glow");
+        $(".computer-frame").removeClass("frame-glow");
+    }, 200);
 }
 
 function addHighlightWinner(winner) {
@@ -117,31 +252,6 @@ function addHighlightWinner(winner) {
 
 function removeHighlightLoser(loser) {
     $("." + loser).removeClass("frame-highlight");
-}
-
-function resetFiveRoundsCounter() {
-    fiveRoundsCounter = 0;
-}
-
-function game(playerSelection) {
-    let computerChoice = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerChoice);
-
-    displayComputerSelectionIcon(computerChoice);
-    displayPlayerSelectionIcon(playerSelection);
-    keepScore(roundResult);
-    displayMessage(roundResult);
-    console.log(roundResult);
-}
-
-function updatePlayerScore(score) {
-    let playerScore = document.getElementById("player-score");
-    playerScore.textContent = score;
-}
-
-function updateComputerScore(score) {
-    let computerScore = document.getElementById("computer-score");
-    computerScore.textContent = score;
 }
 
 function getSelectionIcon(selectionIcon) {
@@ -168,94 +278,10 @@ function removePlayerSelectionIcon() {
     imgPlayer.src = "";
 }
 
-function displayMessage(theMessage) {
-    message.textContent = theMessage;
-}
 
-function displayGameOverMessage() {
-    let winnerResult = announceWinner();
-    let gameResult = announceFinalScore();
-    $(".game-over-winner-loser").text(winnerResult);
-    $(".game-over-message").text(gameResult);
-}
-
-function resetGame() {
-    player = 0;
-    computer = 0;
-    updatePlayerScore(player);
-    updateComputerScore(computer);
-
-    displayMessage("Game has been reset.");
-    removeHighlightLoser("player-frame");
-    removeHighlightLoser("computer-frame");
-    removePlayerSelectionIcon();
-    removeComputerSelectionIcon();
-    resetFiveRoundsCounter();
-}
-
-function turnOnFivePointsMode() {
-    toggleFivePointsModeFlag(true);
-    resetGame();
-    displayMessage("5 Points Mode has started.");
-}
-
-function toggleFivePointsModeFlag(trueOrFalse) {
-    fivePointsModeFlag = trueOrFalse;
-}
-
-function turnOnUnlimitedMode() {
-    toggleFivePointsModeFlag(false);
-    resetGame();
-    displayMessage("Unlmited Mode has started.");
-}
-
-function gameModeSwitch(playerSelection) {
-    if (fivePointsModeFlag == true) {
-        game(playerSelection);
-        if (player == 5 || computer == 5) {
-            /*game over*/
-            $("body").css("pointer-events", "none");
-            $(".game-over").css("pointer-events", "auto");
-            displayGameOverMessage();
-            $(".game-over").toggleClass("toggle-visibility-property");
-            $(".game-over").css("opacity", "1");
-        }
-    }
-    else {
-        game(playerSelection);
-    }
-}
-
-function closeWindow(className) {
-    $("body").css("pointer-events", "auto");
-    $(className).css("opacity", "0");
-    setTimeout(function(){
-        $(className).toggleClass("toggle-visibility-property");
-      }, 100);
-}
-
-function openWindow(className) {
-    $("body").css("pointer-events", "none");
-    $(className).css("pointer-events", "auto");
-    $(className).toggleClass("toggle-visibility-property");
-    $(className).css("opacity", "1");
-}
-
-function glowFrame(playerSelection) {
-    $(".player-frame").addClass("frame-glow");
-    $(".computer-frame").addClass("frame-glow");
-    setTimeout(function() {
-        $(".player-frame").removeClass("frame-glow");
-        $(".computer-frame").removeClass("frame-glow");
-    }, 200);
-}
-
-function buttonPress(selection) {
-    $("'#" + selection.toLowerCase() + "'").addClass("")
-}
 
 /************************************************************** 
- * CLICK AND TYPE FUNCTIONS
+ * CLICK FUNCTIONS
  * 
 **************************************************************/
 $(".rps-buttons").click(function(event) {

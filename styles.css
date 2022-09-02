@@ -8,6 +8,11 @@ body {
     flex-direction: column;
 }
 
+
+/************************************************************** 
+* TEXT PROPERTIES
+*
+**************************************************************/
 a {
     color: #EF233C;
     text-decoration: none;
@@ -56,6 +61,25 @@ h4 {
     font-size: 12px;
 }
 
+p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.dark-red {
+    color: #D90429;
+}
+
+.dark-blue {
+    color: #2B2D42;
+}
+
+
+
+/************************************************************** 
+* ANIMATION PROPERTIES
+*
+**************************************************************/
 @keyframes appear-slide {
     0% {top: 50px; opacity: 0%;}
     100% {top: 0px; opacity: 100%;}
@@ -71,28 +95,12 @@ h4 {
     100% {opacity: 100%;};
 }
 
-header {
-    text-align: center;
-}
 
-header div {
-    padding: 8px 0px;
-}
 
-main {
-    text-align: center;
-    opacity: 0%;
-    animation-name: appear-fade;
-    animation-delay: 1.2s;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-p {
-    font-size: 16px;
-    line-height: 24px;
-}
-
+/************************************************************** 
+* BUTTON PROPERTIES
+*
+**************************************************************/
 button {
     border-radius: 12px;
     color: #EDF2F4;
@@ -102,6 +110,45 @@ button {
 
 button:hover {
     transition: 0.3s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 50px 0px 30px 0px;
+}
+
+.game-selection {
+    font-size: 11px;
+    height: 30px;
+    width: 108px;
+    box-shadow: 0 9px #000000;
+}
+
+.game-selection:active {
+    box-shadow: 0 5px #000000;
+    transform: translateY(4px);
+}
+
+.game-selection-buttons {
+    margin-bottom: 32px;
+}
+
+.game-selection, .game-mode {
+    background-color: #000000;
+    text-transform: uppercase;
+    border: solid 2px #2B2D42;
+}
+
+.game-mode {
+    font-size: 24px;
+    height: 80px;
+    width: 300px;
+}
+
+.game-selection:hover, .game-mode:hover {
+    background-color: #2B2D42;
 }
 
 .rps-buttons:hover {
@@ -124,47 +171,43 @@ button:hover {
     transition: 0.3s;
 }
 
-.game-selection-buttons {
-    margin-bottom: 32px;
+
+
+/************************************************************** 
+* <HEADER> PROPERTIES
+*
+**************************************************************/
+header {
+    text-align: center;
+}
+
+header div {
+    padding: 8px 0px;
 }
 
 
-.game-selection, .game-mode {
-    background-color: #000000;
-    text-transform: uppercase;
-    border: solid 2px #2B2D42;
+
+/************************************************************** 
+* <MAIN> PROPERTIES
+*
+**************************************************************/
+main {
+    text-align: center;
+    opacity: 0%;
+    animation-name: appear-fade;
+    animation-delay: 1.2s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
-.game-selection {
-    font-size: 11px;
-    height: 30px;
-    width: 108px;
-    box-shadow: 0 9px #000000;
+.game-area {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 24px;
 }
 
-.game-selection:active {
-    box-shadow: 0 5px #000000;
-    transform: translateY(4px);
-}
-
-.game-mode {
-    font-size: 24px;
-    height: 80px;
-    width: 300px;
-}
-
-.game-selection:hover, .game-mode:hover {
-    background-color: #2B2D42;
-}
-
-.dark-red {
-    color: #D90429;
-}
-
-.dark-blue {
-    color: #2B2D42;
-}
-
+/**** MESSAGE PROPERTIES ****/
 .message-area {
     text-align: center;
 }
@@ -180,11 +223,9 @@ button:hover {
     margin: 0;
 }
 
-.game-area {
-    display: flex;
-    justify-content: center;
-    gap: 120px;
-    margin-top: 24px;
+/**** FRAME AND IMAGE PROPERTIES ****/
+.computer-frame, .player-frame {
+    transition: 0.1s;
 }
 
 .frame {
@@ -194,17 +235,13 @@ button:hover {
     height: 320px;
 }
 
-.computer-frame, .player-frame {
-    transition: 0.1s;
+.frame-glow {
+    box-shadow: 0px 0px 30px 5px #2B2D42;
 }
 
 .frame-highlight {
     background-color: royalblue;
     transition: 0.1s;
-}
-
-.frame-glow {
-    box-shadow: 0px 0px 30px 5px #2B2D42;
 }
 
 #computer div, #player div {
@@ -213,19 +250,23 @@ button:hover {
     align-items: center;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    padding: 50px 0px 30px 0px;
-}
-
 .icon {
     filter: invert(30%) sepia(0%) saturate(1863%) hue-rotate(154deg) brightness(92%) contrast(85%);
     width: 30px;
     height: 30px;
 }
 
+/**** GAME MODE PROPERTIES ****/
+#current-game-mode {
+    font-weight: 800;
+}
+
+
+
+/************************************************************** 
+* <FOOTER> PROPERTIES
+*
+**************************************************************/
 footer {
     text-align: center;
     width: 100%;
@@ -240,6 +281,14 @@ footer p {
     text-transform: uppercase;
 }
 
+
+
+/************************************************************** 
+* GAME MODE, CREDIT, VISIBILITY BOX PROPERTIES
+*
+**************************************************************/
+
+/**** CREDIT BOX ****/
 .credits {
     display: block;
     position: fixed; /* Stay in place */
@@ -266,9 +315,10 @@ footer p {
     justify-content: flex-end;
 }
 
+/**** GAME MODE BOX ****/
 .popup-game-selection {
     display: block;
-    position: fixed; /* Stay in place */
+    position: fixed;
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -277,10 +327,6 @@ footer p {
     background-color: rgba(0,0,0,0.4);
     opacity: 0%;
     transition: opacity 0.1s ease-in;
-}
-
-.toggle-visibility-property {
-    visibility: hidden;
 }
 
 .popup-game-selection-content {
@@ -297,44 +343,11 @@ footer p {
     transition: opacity 0.1s ease-in;
 }
 
-.close {
-    display: flex;
-    justify-content: center;
-    font-size: 28px;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    transition: 0.3s;
-}
-
-.close:hover {
-    cursor: default;
-    color: #EDF2F4;
-    background-color: #2B2D42;
-    transition: 0.3s;
-}
-
-.popup-content-center {
-    text-align: center;
-}
-
-.popup-game-selection-content > div:first-child {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.popup-content-center div {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin: 30px 0px;
-    padding: 20px 0px;
-}
-
 .warning-headline {
     color: #D90429;
 }
 
+/**** GAME OVER BOX ****/
 .game-over {
     display: block;
     position: fixed; /* Stay in place */
@@ -372,6 +385,41 @@ footer p {
     margin-bottom: 40px;
 }
 
-#current-game-mode {
-    font-weight: 800;
+/**** GENERAL BOX PROPERTIES ****/
+.close {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.close:hover {
+    cursor: default;
+    color: #EDF2F4;
+    background-color: #2B2D42;
+    transition: 0.3s;
+}
+
+.popup-content-center {
+    text-align: center;
+}
+
+.popup-game-selection-content > div:first-child {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-content-center div {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 30px 0px;
+    padding: 20px 0px;
+}
+
+.toggle-visibility-property {
+    visibility: hidden;
 }
