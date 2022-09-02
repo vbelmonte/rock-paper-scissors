@@ -79,7 +79,7 @@ header div {
     padding: 8px 0px;
 }
 
-section {
+main {
     text-align: center;
     opacity: 0%;
     animation-name: appear-fade;
