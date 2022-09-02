@@ -262,7 +262,8 @@ footer p {
 }
 
 .credits-content > div:first-child {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .popup-game-selection {
