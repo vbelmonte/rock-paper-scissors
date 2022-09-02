@@ -226,27 +226,12 @@ function gameModeSwitch(playerSelection) {
     }
 }
 
-function closeWindow() {
-    $("body").css("pointer-events", "auto");
-    gameMode[0].style.opacity = "0%";
-    setTimeout(function(){
-        $(".popup-game-selection").toggleClass("toggle-visibility-property");
-      }, 100);
-}
-
-function closeWindowTest(className) {
+function closeWindow(className) {
     $("body").css("pointer-events", "auto");
     $(className).css("opacity", "0");
     setTimeout(function(){
         $(className).toggleClass("toggle-visibility-property");
       }, 100);
-}
-
-function closeGameOverWindow() {
-    $(".game-over").css("opacity", "0");
-    setTimeout(function() {
-        $(".game-over").toggleClass("toggle-visibility-property");
-    }, 100);
 }
 
 function glowFrame(playerSelection) {
@@ -275,8 +260,7 @@ $(".reset-game").click(resetGame);
 
 $(".restart-game").click(function() {
     resetGame();
-    closeGameOverWindow();
-    $("body").css("pointer-events", "auto");
+    closeWindow(".game-over");
 });
 
 $("#game-mode").click(function() {
@@ -287,13 +271,13 @@ $("#game-mode").click(function() {
 });
 
 $("#close-game-mode").click(function() {
-    closeWindowTest(".popup-game-selection");
+    closeWindow(".popup-game-selection");
 });
 
 $("#five-points").click(function() {
     turnOnFivePointsMode();
     $("#current-game-mode").text("5 Points");
-    closeWindowTest(".popup-game-selection");
+    closeWindow(".popup-game-selection");
 });
 
 $("#five-points").hover(
@@ -310,7 +294,7 @@ $("#five-points").hover(
 $("#unlimited-rounds").click(function() {
     turnOnUnlimitedMode();
     $("#current-game-mode").text("Unlimited");
-    closeWindowTest(".popup-game-selection");
+    closeWindow(".popup-game-selection");
 });
 
 $("#unlimited-rounds").hover(
@@ -332,5 +316,5 @@ $("#open-credits").click(function() {
 });
 
 $("#close-credits").click(function() {
-    closeWindowTest(".credits");
+    closeWindow(".credits");
 });
