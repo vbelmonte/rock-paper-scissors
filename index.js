@@ -234,6 +234,13 @@ function closeWindow(className) {
       }, 100);
 }
 
+function openWindow(className) {
+    $("body").css("pointer-events", "none");
+    $(className).css("pointer-events", "auto");
+    $(className).toggleClass("toggle-visibility-property");
+    $(className).css("opacity", "1");
+}
+
 function glowFrame(playerSelection) {
     $(".player-frame").addClass("frame-glow");
     $(".computer-frame").addClass("frame-glow");
@@ -264,10 +271,7 @@ $(".restart-game").click(function() {
 });
 
 $("#game-mode").click(function() {
-    $("body").css("pointer-events", "none");
-    $(".popup-game-selection").css("pointer-events", "auto");
-    $(".popup-game-selection").toggleClass("toggle-visibility-property");
-    gameMode[0].style.opacity = "100%";
+    openWindow(".popup-game-selection");
 });
 
 $("#close-game-mode").click(function() {
@@ -309,10 +313,7 @@ $("#unlimited-rounds").hover(
 );
 
 $("#open-credits").click(function() {
-    $("body").css("pointer-events", "none");
-    $(".credits").css("pointer-events", "auto");
-    $(".credits").toggleClass("toggle-visibility-property");
-    $(".credits").css("opacity", "1");
+    openWindow(".credits");
 });
 
 $("#close-credits").click(function() {
