@@ -21,14 +21,12 @@ function game(playerSelection) {
     displayPlayerSelectionIcon(playerSelection);
     keepScore(roundResult);
     displayMessage(roundResult);
-    console.log(roundResult);
 }
 
 function gameModeSwitch(playerSelection) {
     if (fivePointsModeFlag == true) {
         game(playerSelection);
         if (player == 5 || computer == 5) {
-            /*game over*/
             $("body").css("pointer-events", "none");
             $(".game-over").css("pointer-events", "auto");
             displayGameOverMessage();
